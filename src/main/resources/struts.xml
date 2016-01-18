@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ 
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+    "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+<constant name="struts.devMode" value="false" />
+<package name="user" namespace="/" extends="struts-default">
+	<interceptors>
+	<interceptor name="myinterceptor" class="mypack.MyInterceptor"/>
+	<interceptor name="secondinterceptor" class="mypack.MySecondInterceptor"/>
+	</interceptors>
+
+    <action name="menu">
+        <result>menu.jsp</result>
+    </action>
+    <action name="home">
+        <result>login.jsp</result>
+    </action>
+    <action name="address">
+        <result>address.jsp</result>
+    </action>
+    
+    <action name="login" class="mypack.LoginAction">
+    	<interceptor-ref name="defaultStack"></interceptor-ref>
+    	<interceptor-ref name="myinterceptor"></interceptor-ref>
+    	<interceptor-ref name="secondinterceptor"></interceptor-ref>
+    	<result name="SUCCESS">/welcome.jsp</result>
+    	<result name="ERROR">/error.jsp</result>
+    </action>
+    
+    <action name="address-action" class="mypack.AddressAction">
+    	<result name="success">/welcome.jsp</result>
+    	<result name="ERROR">/error.jsp</result>
+    </action>
+ 
+</package>
+ 
+</struts>
