@@ -1,4 +1,4 @@
-package mypack;
+package mypack.actions;
 public class Address 
 {
 	private String street,city;
