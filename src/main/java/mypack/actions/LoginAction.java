@@ -1,4 +1,4 @@
-package mypack;
+package mypack.actions;
 import com.opensymphony.xwork2.Action;
 public class LoginAction implements Action {
 	

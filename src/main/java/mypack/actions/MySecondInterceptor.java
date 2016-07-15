@@ -1,4 +1,4 @@
-package mypack;
+package mypack.actions;
 
 import com.opensymphony.xwork2.ActionInvocation;
 import com.opensymphony.xwork2.interceptor.Interceptor;
@@ -7,9 +7,11 @@ public class MySecondInterceptor implements Interceptor
 {
 	@Override
 	public void destroy() {
+		System.out.println("MySecondInterceptor is destroyed.");
 	}
 	@Override
 	public void init() {
+		System.out.println("MySecondInterceptor is initialized.");
 	}
 	@Override
 	public String intercept(ActionInvocation ai) throws Exception {

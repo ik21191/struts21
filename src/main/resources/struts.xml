@@ -7,10 +7,14 @@
 <constant name="struts.devMode" value="false" />
 <package name="user" namespace="/" extends="struts-default">
 	<interceptors>
-	<interceptor name="myinterceptor" class="mypack.MyInterceptor"/>
-	<interceptor name="secondinterceptor" class="mypack.MySecondInterceptor"/>
+		<interceptor name="myinterceptor" class="mypack.actions.MyInterceptor"/>
+		<interceptor name="secondinterceptor" class="mypack.actions.MySecondInterceptor"/>
 	</interceptors>
-
+	
+	<!-- Below action is used for default action. -->
+	<action name="">
+        <result>menu.jsp</result>
+    </action>
     <action name="menu">
         <result>menu.jsp</result>
     </action>
@@ -21,7 +25,7 @@
         <result>address.jsp</result>
     </action>
     
-    <action name="login" class="mypack.LoginAction">
+    <action name="login" class="mypack.actions.LoginAction">
     	<interceptor-ref name="defaultStack"></interceptor-ref>
     	<interceptor-ref name="myinterceptor"></interceptor-ref>
     	<interceptor-ref name="secondinterceptor"></interceptor-ref>
@@ -29,7 +33,7 @@
     	<result name="ERROR">/error.jsp</result>
     </action>
     
-    <action name="address-action" class="mypack.AddressAction">
+    <action name="address-action" class="mypack.actions.AddressAction">
     	<result name="success">/welcome.jsp</result>
     	<result name="ERROR">/error.jsp</result>
     </action>
