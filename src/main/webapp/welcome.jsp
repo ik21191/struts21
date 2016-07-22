@@ -11,6 +11,14 @@
 <body>
 Welcome, <b><s:property value="name" /></b><br/>Address Result<br/><br/>
 Street,<s:property value="street"/><br/>
-City,<s:property value="city"/><br/>
+City,<s:property value="city"/><br/><br/>
+
+Displaying Student list<br/>
+<s:iterator value="studentList">
+	
+	<s:property value="name"/>
+	<s:property value="address.street"/><br/>
+
+</s:iterator>
 </body>
 </html>
