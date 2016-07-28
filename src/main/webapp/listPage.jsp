@@ -24,13 +24,11 @@ Displaying Student list<br/>
 <s:form action="updatedList">
 <s:iterator value="studentList" status="count">
 	
-	<s:hidden name="updatedStudentList[%{#count.index}].name" value="%{name}" />
-	<s:hidden name="updatedStudentList[%{#count.index}].address.street" value="%{address.street}" />
-	<input type="text" value='<s:property value="name"/>'/><br/>
-	<input type="text" value='<s:property value="%{name}"/>'/>
+	<s:hidden name="updatedStudentList[%{#count.index}].name" value="name" />
+	<s:hidden name="updatedStudentList[%{#count.index}].address.street" value="address.street" />
+	<input type="text" />
+	
 </s:iterator>
-<input type="text" />
-	<s:submit value="Submit"/>
 </s:form>
 
 <s:if test="%{studentList.isEmpty()}">
