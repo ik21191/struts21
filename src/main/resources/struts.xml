@@ -37,6 +37,9 @@
     	<result name="success">/welcome.jsp</result>
     	<result name="ERROR">/error.jsp</result>
     </action>
+    <action name="updatedList" class="mypack.actions.ListAction">
+    	<result name="SUCCESS">/listPage.jsp</result>
+    </action>
  
 </package>
  

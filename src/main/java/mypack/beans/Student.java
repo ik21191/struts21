@@ -25,5 +25,8 @@ public class Student {
 	public void setAddress(Location address) {
 		this.address = address;
 	}
-	
+	@Override
+	public String toString() {
+		return "Name: " + name + " Street: " + address.getStreet();
+	}
 }
