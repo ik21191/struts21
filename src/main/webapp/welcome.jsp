@@ -1,3 +1,4 @@
+<%@page import="mypack.constants.Constants"%>
 <%@ page language="java" contentType="text/html; charset=US-ASCII"
     pageEncoding="US-ASCII"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -9,6 +10,20 @@
 <title>Welcome Page</title>
 </head>
 <body>
+<s:if test="hasActionMessages()">
+   
+      <s:actionmessage/>
+   
+</s:if>
+<br/>
+<s:if test="hasActionErrors()">
+      <s:actionerror/>
+</s:if>
+<s:set var="varTest"> <%= Constants.appName %> </s:set>
+<br/>
+Display Scriptlet tag value way 1: <s:property value="%{#varTest}"/> <br/>
+Display Scriptlet tag value way 2: <s:property value="%{varTest}"/> <br/>
+Display Scriptlet tag value way 3: <s:property value="#varTest"/> <br/>
 Welcome, <b><s:property value="name" /></b><br/>Address Result<br/><br/>
 Street,<s:property value="street"/><br/>
 City,<s:property value="city"/><br/><br/>

@@ -6,7 +6,8 @@ import mypack.beans.Location;
 import mypack.beans.Student;
 
 import com.opensymphony.xwork2.Action;
-public class LoginAction implements Action {
+import com.opensymphony.xwork2.ActionSupport;
+public class LoginAction extends ActionSupport implements Action {
 
 	//Java Bean to hold the form parameters
     private String name;
@@ -21,7 +22,8 @@ public class LoginAction implements Action {
     public String execute() throws Exception {
     	initializeStudentList();
     	System.out.println("execute() of LoginAction is invoked.");
-    	
+    	addActionMessage("Hello this is Action message");
+    	addActionError("Hello this is Action Error message");
         if(name.length()>1)
         return "SUCCESS";
         else return "ERROR";
