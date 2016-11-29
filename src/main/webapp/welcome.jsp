@@ -56,5 +56,23 @@ Displaying Student list<br/>
 dkjdj ll djl dl j
 
 </s:else>
+<br/>Display List<br/>
+<s:form action="list1">
+<s:iterator value="studentList" status="count">
+	
+	<s:checkbox name="aa" fieldValue="%{name}"/>
+
+</s:iterator>
+<s:submit/>
+</s:form>
+<br/><br/>
+
+Display images.<br/>
+
+
+<img height="20%" width="20%" alt title="This is test" src="http://localhost:5555/images/banner/i1.png"/><br/>
+<img height="20%" width="20%" alt title="This is test" src="http://localhost:5555/images/products/i1.png"/><br/>
+
+
 </body>
 </html>

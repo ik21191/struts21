@@ -9,7 +9,9 @@
 	<interceptors>
 		<interceptor name="myinterceptor" class="mypack.actions.MyInterceptor"/>
 		<interceptor name="secondinterceptor" class="mypack.actions.MySecondInterceptor"/>
+		<interceptor name="globalInterceptor" class="mypack.actions.GlobalInterceptor"></interceptor>
 	</interceptors>
+	<default-interceptor-ref name="globalInterceptor"></default-interceptor-ref>
 	
 	<!-- Below action is used for default action. -->
 	<action name="">
@@ -38,6 +40,10 @@
     	<result name="ERROR">/error.jsp</result>
     </action>
     <action name="updatedList" class="mypack.actions.ListAction">
+    	<result name="SUCCESS">/listPage.jsp</result>
+    </action>
+    
+    <action name="list1" class="mypack.actions.MyListAction">
     	<result name="SUCCESS">/listPage.jsp</result>
     </action>
  
