@@ -11,7 +11,8 @@
 		<interceptor name="secondinterceptor" class="mypack.actions.MySecondInterceptor"/>
 		<interceptor name="globalInterceptor" class="mypack.actions.GlobalInterceptor"></interceptor>
 	</interceptors>
-	<default-interceptor-ref name="globalInterceptor"></default-interceptor-ref>
+	<!-- Below line is for global interceptor, default interceptor will no called if we UnComment it. -->
+	<!-- <default-interceptor-ref name="globalInterceptor"></default-interceptor-ref> -->
 	
 	<!-- Below action is used for default action. -->
 	<action name="">
