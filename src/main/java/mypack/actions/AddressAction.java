@@ -1,4 +1,6 @@
 package mypack.actions;
+import mypack.beans.Address;
+
 import com.opensymphony.xwork2.ModelDriven;
 import com.opensymphony.xwork2.Preparable;
 public class AddressAction implements ModelDriven<Address>,Preparable{

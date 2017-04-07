@@ -1,13 +1,11 @@
 package mypack.actions;
-import java.util.List;
-
 import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ActionSupport;
 public class MyListAction extends ActionSupport implements Action {
 
 	//Java Bean to hold the form parameters
-    
-    private String[] aa;
+   	private static final long serialVersionUID = 1L;
+	private String[] aa;
     
 	public MyListAction(){
 		System.out.println("LoginAction is called.");

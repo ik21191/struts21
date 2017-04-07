@@ -27,9 +27,12 @@ public class LoginAction extends ActionSupport implements Action {
     	System.out.println("execute() of LoginAction is invoked.");
     	addActionMessage("Hello this is Action message");
     	addActionError("Hello this is Action Error message");
-        if(name.length()>1)
-        return "SUCCESS";
-        else return "ERROR";
+        if(name.length()>1) {
+        	return "SUCCESS";
+        }
+        else {
+        	return "ERROR";
+        }
     }
     
     public void initializeStudentList(){
