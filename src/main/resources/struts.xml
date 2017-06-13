@@ -7,9 +7,12 @@
 <constant name="struts.devMode" value="false" />
 <package name="user" namespace="/" extends="struts-default">
 	<interceptors>
-		<interceptor name="myinterceptor" class="mypack.actions.MyInterceptor"/>
-		<interceptor name="secondinterceptor" class="mypack.actions.MySecondInterceptor"/>
+		<interceptor name="myinterceptor" class="mypack.interceptors.MyInterceptor"/>
+		<interceptor name="secondinterceptor" class="mypack.interceptors.MySecondInterceptor"/>
+		<interceptor name="globalInterceptor" class="mypack.interceptors.GlobalInterceptor"></interceptor>
 	</interceptors>
+	<!-- Below line is for global interceptor, default interceptor will no called if we UnComment it. -->
+	<!-- <default-interceptor-ref name="globalInterceptor"></default-interceptor-ref> -->
 	
 	<!-- Below action is used for default action. -->
 	<action name="">
@@ -38,6 +41,10 @@
     	<result name="ERROR">/error.jsp</result>
     </action>
     <action name="updatedList" class="mypack.actions.ListAction">
+    	<result name="SUCCESS">/listPage.jsp</result>
+    </action>
+    
+    <action name="list1" class="mypack.actions.MyListAction">
     	<result name="SUCCESS">/listPage.jsp</result>
     </action>
  
