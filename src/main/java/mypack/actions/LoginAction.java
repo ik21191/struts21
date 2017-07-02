@@ -4,12 +4,21 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import mypack.beans.Location;
 import mypack.beans.Student;
 
+import org.apache.struts2.interceptor.ServletRequestAware;
+import org.apache.struts2.interceptor.ServletResponseAware;
+import org.apache.struts2.util.ServletContextAware;
+
 import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ActionSupport;
-public class LoginAction extends ActionSupport implements Action {
+public class LoginAction extends ActionSupport implements Action, ServletRequestAware, ServletResponseAware, 
+ServletContextAware {
 
 	//Java Bean to hold the form parameters
     private String name;
@@ -17,17 +26,37 @@ public class LoginAction extends ActionSupport implements Action {
     private List<Student> studentList;
     private Map<String,String> map;
     
-	public LoginAction(){
+    HttpServletRequest request;
+    String url;
+    String paramValue;
+    public LoginAction(){
 		System.out.println("LoginAction is called.");
 	}
     
-    @Override
-    public String execute() throws Exception {
+    public String customeMethod() throws Exception {
     	initializeStudentList();
     	System.out.println("execute() of LoginAction is invoked.");
     	addActionMessage("Hello this is Action message");
+    	addActionMessage(getText("test.property"));
     	addActionError("Hello this is Action Error message");
-        if(name.length()>1) {
+    	
+    	String str = request.getParameter("test");
+    	
+    	System.out.println("Getting parameter from request : " + request.getParameter("test"));
+    	
+    	if(str.equals("redirectme")) {
+    		url = "/menu";
+    		paramValue = "Hello Param";
+    		return "redirect";
+    	}
+    	
+    	if(str.equals("google")) {
+    		url = "http://www.google.co.in";
+    		paramValue = "Hello Param";
+    		return "redirect";
+    	}
+    	
+    	if(name.length()>1) {
         	return "SUCCESS";
         }
         else {
@@ -83,4 +112,26 @@ public class LoginAction extends ActionSupport implements Action {
 		this.map = map;
 	}
     
+	public void setServletContext(ServletContext arg0) {}
+	public void setServletRequest(HttpServletRequest request) {
+		this.request = request;
+	}
+	public void setServletResponse(HttpServletResponse arg0) {}
+
+	public String getUrl() {
+		return url;
+	}
+
+	public String getParamValue() {
+		return paramValue;
+	}
+	
+	@Override
+	public void validate() {
+		System.out.println("validate() method is called.");
+		if(name.length() < 2) {
+			addActionError("Error message added in validate() method.");
+			addFieldError("name", getText("name.length"));
+		}
+	}
 }

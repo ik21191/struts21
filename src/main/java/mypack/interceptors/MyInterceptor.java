@@ -24,8 +24,11 @@ public class MyInterceptor implements Interceptor
 	public String intercept(ActionInvocation ai) throws Exception {
 		// TODO Auto-generated method stub
 		System.out.println("MyInterceptor is called.");
-		LoginAction action = (LoginAction)ai.getAction();
-		System.out.println("Printing action's property....  " + action.getName());
+		if(ai.getAction() instanceof LoginAction) {
+			LoginAction action = (LoginAction)ai.getAction();
+			System.out.println("Printing action's property....  " + action.getName());
+			action.setName(action.getName() + "XXXXXX");
+		}
 		/**If you comment below call, then no further Interceptor and action's execute() method is called.
 		 * only actions's object is created and its properties will be initialized from form values.
 		 **/

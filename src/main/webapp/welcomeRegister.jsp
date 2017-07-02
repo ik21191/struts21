@@ -9,12 +9,6 @@
 <title>Login Page</title>
 </head>
 <body>
-<h3>Welcome User, please login below</h3>
-<s:form action="login?test=myparam">
-    <s:textfield name="name" label="User Name"/>
-    <s:password name="pwd" label="Password" type="password"/>
-    <s:submit value="Login"></s:submit>
-    <s:token />
-</s:form>
+Welcome, <b><s:property value="firstName" /></b><br/>
 </body>
 </html>

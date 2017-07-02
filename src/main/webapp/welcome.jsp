@@ -27,6 +27,7 @@ Display Scriptlet tag value way 3: <s:property value="#varTest"/> <br/>
 Welcome, <b><s:property value="name" /></b><br/>Address Result<br/><br/>
 Street,<s:property value="street"/><br/>
 City,<s:property value="city"/><br/><br/>
+Xyz,<s:property value="xyzName"/><br/>
 
 Displaying Student list<br/>
 <s:iterator value="studentList" status="count">

@@ -11,5 +11,6 @@
 <body>
 <a href="home">Login Page</a><br/>
 <a href="address">Add Address</a><br/>
+<a href="register">Register User</a><br/>
 </body>
 </html>

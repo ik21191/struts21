@@ -5,13 +5,14 @@
     "http://struts.apache.org/dtds/struts-2.3.dtd">
 <struts>
 <constant name="struts.devMode" value="false" />
+<constant name="struts.custom.i18n.resources" value="ApplicationResources" />
 <package name="user" namespace="/" extends="struts-default">
 	<interceptors>
 		<interceptor name="myinterceptor" class="mypack.interceptors.MyInterceptor"/>
 		<interceptor name="secondinterceptor" class="mypack.interceptors.MySecondInterceptor"/>
 		<interceptor name="globalInterceptor" class="mypack.interceptors.GlobalInterceptor"></interceptor>
 	</interceptors>
-	<!-- Below line is for global interceptor, default interceptor will no called if we UnComment it. -->
+	<!-- Below line is for global interceptor, default interceptor will not called if we UnComment it. -->
 	<!-- <default-interceptor-ref name="globalInterceptor"></default-interceptor-ref> -->
 	
 	<!-- Below action is used for default action. -->
@@ -28,12 +29,27 @@
         <result>address.jsp</result>
     </action>
     
-    <action name="login" class="mypack.actions.LoginAction">
+    <action name="register">
+        <result>register.jsp</result>
+    </action>
+    
+    <action name="login" class="mypack.actions.LoginAction" method="customeMethod">
+    	<interceptor-ref name="token"></interceptor-ref>
+		<!-- <interceptor-ref name="tokenSession"></interceptor-ref> -->
     	<interceptor-ref name="defaultStack"></interceptor-ref>
     	<interceptor-ref name="myinterceptor"></interceptor-ref>
     	<interceptor-ref name="secondinterceptor"></interceptor-ref>
     	<result name="SUCCESS">/welcome.jsp</result>
     	<result name="ERROR">/error.jsp</result>
+    	<result name="input">/login.jsp</result>
+    	<result name="invalid.token">/invalidToken.jsp</result>
+    	<!-- <result name = "redirect" type = "redirect">${url}?param1=${paramValue}</result> -->
+    	<result name = "redirect" type = "redirect">/menu?p=imran</result>
+    </action>
+    
+    <action name="save" class="mypack.actions.RegisterAction" method="execute">
+    	<result name="success">/welcomeRegister.jsp</result>
+    	<result name="input">/register.jsp</result>
     </action>
     
     <action name="address-action" class="mypack.actions.AddressAction">
