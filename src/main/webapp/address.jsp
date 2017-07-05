@@ -12,6 +12,7 @@
 <s:form action="address-action">
 <s:textfield name="street" label="Enter Street Number"/><br/>
 <s:textfield name="city" label="Enter City"/><br/>
+<s:textfield name="xyzName" label="Xyz Name"/><br/>
 <s:submit value="Add Address"/>
 </s:form>
 </body>
