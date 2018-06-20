@@ -21,6 +21,8 @@ import com.opensymphony.xwork2.ActionSupport;
 public class LoginAction extends ActionSupport implements Action, ServletRequestAware, ServletResponseAware, 
 ServletContextAware {
 
+	private static final long serialVersionUID = 1L;
+
 	private static Logger log = Logger.getLogger(LoginAction.class); 
 	
 	//Java Bean to hold the form parameters
