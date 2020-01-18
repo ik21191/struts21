@@ -21,7 +21,6 @@ public class MySecondInterceptor implements Interceptor
 	}
 	@Override
 	public String intercept(ActionInvocation ai) throws Exception {
-		// TODO Auto-generated method stub
 		System.out.println("MySecondInterceptor is called.");
 		String result = ai.invoke();
 		System.out.println("MySecondInterceptor: Code written after invoking action.");

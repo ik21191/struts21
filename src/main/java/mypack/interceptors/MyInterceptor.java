@@ -22,7 +22,6 @@ public class MyInterceptor implements Interceptor
 	}
 	@Override
 	public String intercept(ActionInvocation ai) throws Exception {
-		// TODO Auto-generated method stub
 		System.out.println("MyInterceptor is called.");
 		if(ai.getAction() instanceof LoginAction) {
 			LoginAction action = (LoginAction)ai.getAction();

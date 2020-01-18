@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import mypack.beans.Location;
 import mypack.beans.Student;
 
+import org.apache.log4j.Logger;
 import org.apache.struts2.interceptor.ServletRequestAware;
 import org.apache.struts2.interceptor.ServletResponseAware;
 import org.apache.struts2.util.ServletContextAware;
@@ -20,6 +21,10 @@ import com.opensymphony.xwork2.ActionSupport;
 public class LoginAction extends ActionSupport implements Action, ServletRequestAware, ServletResponseAware, 
 ServletContextAware {
 
+	private static final long serialVersionUID = 1L;
+
+	private static Logger log = Logger.getLogger(LoginAction.class); 
+	
 	//Java Bean to hold the form parameters
     private String name;
     private String pwd;
@@ -30,19 +35,19 @@ ServletContextAware {
     String url;
     String paramValue;
     public LoginAction(){
-		System.out.println("LoginAction is called.");
+		log.info("LoginAction is called.");
 	}
     
     public String customeMethod() throws Exception {
     	initializeStudentList();
-    	System.out.println("execute() of LoginAction is invoked.");
+    	log.info("execute() of LoginAction is invoked.");
     	addActionMessage("Hello this is Action message");
     	addActionMessage(getText("test.property"));
     	addActionError("Hello this is Action Error message");
     	
     	String str = request.getParameter("test");
     	
-    	System.out.println("Getting parameter from request : " + request.getParameter("test"));
+    	log.info("Getting parameter from request : " + request.getParameter("test"));
     	
     	if(str.equals("redirectme")) {
     		url = "/menu";
@@ -83,7 +88,7 @@ ServletContextAware {
         return name;
     }
     public void setName(String name) {
-    	System.out.println("setName(String) is called.");
+    	log.info("setName(String) is called.");
         this.name = name;
     }
     public String getPwd() {
@@ -128,7 +133,7 @@ ServletContextAware {
 	
 	@Override
 	public void validate() {
-		System.out.println("validate() method is called.");
+		log.info("validate() method is called.");
 		if(name.length() < 2) {
 			addActionError("Error message added in validate() method.");
 			addFieldError("name", getText("name.length"));

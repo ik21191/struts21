@@ -39,10 +39,10 @@
     	<interceptor-ref name="defaultStack"></interceptor-ref>
     	<interceptor-ref name="myinterceptor"></interceptor-ref>
     	<interceptor-ref name="secondinterceptor"></interceptor-ref>
-    	<result name="SUCCESS">/welcome.jsp</result>
-    	<result name="ERROR">/error.jsp</result>
-    	<result name="input">/login.jsp</result>
-    	<result name="invalid.token">/invalidToken.jsp</result>
+    	<result name="SUCCESS">welcome.jsp</result>
+    	<result name="ERROR">error.jsp</result>
+    	<result name="input">login.jsp</result>
+    	<result name="invalid.token">invalidToken.jsp</result>
     	<!-- <result name = "redirect" type = "redirect">${url}?param1=${paramValue}</result> -->
     	<result name = "redirect" type = "redirect">/menu?p=imran</result>
     </action>
@@ -57,15 +57,15 @@
     </action>
     
     <action name="address-action" class="mypack.actions.AddressAction">
-    	<result name="success">/welcome.jsp</result>
-    	<result name="ERROR">/error.jsp</result>
+    	<result name="success">welcome.jsp</result>
+    	<result name="ERROR">error.jsp</result>
     </action>
     <action name="updatedList" class="mypack.actions.ListAction">
-    	<result name="SUCCESS">/listPage.jsp</result>
+    	<result name="SUCCESS">listPage.jsp</result>
     </action>
     
     <action name="list1" class="mypack.actions.MyListAction">
-    	<result name="SUCCESS">/listPage.jsp</result>
+    	<result name="SUCCESS">listPage.jsp</result>
     </action>
  
 </package>
