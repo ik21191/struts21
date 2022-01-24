@@ -4,7 +4,7 @@
 	<groupId>com.mypack</groupId>
 	<artifactId>struts21</artifactId>
 	<packaging>war</packaging>
-	<version>2.0-SNAPSHOT</version>
+	<version>3.0-SNAPSHOT</version>
 	<name>struts21 Maven Webapp</name>
 	<url>http://maven.apache.org</url>
 	<dependencies>
